@@ -1,0 +1,51 @@
+
+<div id="main">
+
+  <div *ngIf='showChoices' id="btn-choice">
+    <button class="btn-border paper-svg" value="paper" (click)='showChoices = false; checkWinner("paper")'>
+      <span><img src="{{paperSvg}}" alt="paper"></span>
+    </button>
+    <button class="btn-border scissors-svg" value="scissors" (click)='showChoices = false; checkWinner("scissors")'>
+      <span><img src="{{scissorsSvg}}" alt="scissors"></span>
+    </button>
+    <button class="btn-border rock-svg" value="rock" (click)='showChoices = false; checkWinner("rock")'>
+      <span><img src="{{rockSvg}}" alt="rock"></span>
+    </button>
+  </div>
+
+
+
+  <div *ngIf='!showChoices' id="btn-result-section">
+    <div id="user-choice" class="result-col">
+      <h2>you picked</h2>
+
+      <button class="btn-border"
+        [ngClass]="userChoice == 'paper' ? 'paper-svg' : userChoice == 'scissors' ? 'scissors-svg' : 'rock-svg'" value="{userChoise}">
+        <span id="result-span">
+          <img *ngIf='userChoice == "paper"' src="{{paperSvg}}" alt="paper">
+          <img *ngIf='userChoice == "scissors"' src="{{scissorsSvg}}" alt="scissors">
+          <img *ngIf='userChoice == "rock"' src="{{rockSvg}}" alt="rock">
+        </span>
+      </button>
+    </div>
+
+    <div id="btn-result" class="result-col">
+      <h1>{{result}}</h1>
+      <button (click)='showChoices=true'
+        [ngClass]="{'loser':result=='you lose'}">play again</button>
+    </div>
+
+    <div id="house-choice" class="result-col">
+      <h2>the house picked</h2>
+      <button class="btn-border"
+        [ngClass]="computerChoice == 'paper' ? 'paper-svg' : computerChoice == 'scissors' ? 'scissors-svg' : 'rock-svg'" value="{computerChoice}">
+        <span id="result-span">
+          <img *ngIf='computerChoice == "paper"' src="{{paperSvg}}" alt="paper">
+          <img *ngIf='computerChoice == "scissors"' src="{{scissorsSvg}}" alt="scissors">
+          <img *ngIf='computerChoice == "rock"' src="{{rockSvg}}" alt="rock">
+        </span>
+      </button>
+    </div>
+  </div>
+
+</div>
