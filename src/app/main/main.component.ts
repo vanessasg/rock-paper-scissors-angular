@@ -10,9 +10,9 @@ export class MainComponent implements OnInit {
 
   showChoices = true;
 
-  paperSvg = '../assets/images/icon-paper.svg';
-  scissorsSvg = '../assets/images/icon-scissors.svg';
-  rockSvg = '../assets/images/icon-rock.svg';
+  paperSvg = 'assets/images/icon-paper.svg';
+  scissorsSvg = 'assets/images/icon-scissors.svg';
+  rockSvg = 'assets/images/icon-rock.svg';
 
   possibleChoices = ['paper', 'scissors', 'rock'];
   computerChoice = '';
